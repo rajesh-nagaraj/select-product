@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .a11y {
+        position: absolute;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(0 0 99.9% 99.9%);
+        overflow: hidden;
+        height: 1px;
+        width: 1px;
+        padding: 0;
+        border: 0
+    }
+    .container{
+      width: 700px;
+      margin: 50px auto;
+      color: #000;
+    }
+
+    #select-replacement-product{
+      position: relative;
+      padding-bottom: 50px;
+    }
+    /*Tabs starts*/
+    .tabList {
+      position: absolute;
+      bottom: 0;
+      list-style: none;
+      width: 100%;
+      text-align: center;
+    }
+    .tabList li {
+        display: inline-block;
+    }
+    .tabList .tab {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 25px;
+        margin: 0 10px;
+        color: #000;
+    }
+    .tab.selected .HexDecIcon:after {
+         content: "\25CF";
+         alt:"";
+    }
+    .tab .HexDecIcon:after {
+         content: "\25CB";
+         alt:"";
+    }
+    .tabpanels-contaniner {
+      width: 70%;
+      display: inline-block;
+    }
+    .tabpanel{
+        list-style: none;
+    }
+
+    .tabpanel li{
+      position: relative;
+      width: 47%;
+      margin: 1%;
+      display: inline-block;
+    }
+
+    /*Tabs ends*/
+    /*Prev and next buttons starts*/
+    .prevBtn,
+    .nextBtn {
+      font-size: 100px;
+      border: none;
+      background: none;
+      margin-top: 220px;
+      vertical-align: top;
+      width: 15%;
+    }
+    .prevBtn{
+      float: left;
+    }
+    .nextBtn{
+      float: right;
+    }
+    .prevBtn[disabled],
+    .nextBtn[disabled] {
+        color: #ccc;
+    }
+    .nextBtn .HexDecIcon:after{
+      content: "\203A";
+      alt:"";
+    }
+    .prevBtn .HexDecIcon:after{
+      content: "\2039";
+      alt="";
+    }
+    /*Prev and next buttons ends*/
+    .radioBtn:focus + div {
+        border-color: #0070c9;
+        border-width: 2px;
+        box-shadow: 0 0 0 3px rgba(0, 112, 201, .3);
+    }
+
+    .radioBtn:checked + div {
+        border-color: #0070c9;
+        border-width: 2px;
+    }
+
+    .radioLabel {
+        text-align: center;
+        display: block;
+    }
+
+    .radioBtn + div {
+        border: 1px solid #d6d6d6;
+    }
+
+    .radioBtn {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    #selct-product {
+        display: inline-block;
+    }
+
+
+
+
+
+
+    @media only screen and (max-device-width: 480px) {
+        .prevBtn,
+        .nextBtn {
+            display: none;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>We’re happy to provide you an in-warranty headphone replacement from Apple, free of charge. You can return your original one to Apple afterwards.</p>
+        <p>Choose from 8 accessories</p>
+        <div id="select-replacement-product">
+          <ul class="tabList" role="tablist">
+              <li role="presentation">
+                <a href="#tab-1" id="tablink-1" aria-controls="tab-1" role="tab" aria-selected="true" aria-expanded="true" class="tab selected">
+                  <span class="HexDecIcon" aria-hidden="true"></span>
+                  <span class="a11y">Choose from options 1 to 4</span>
+                </a>
+              </li>
+              <li>
+                  <a href="#tab-2" id="tablink-2" aria-controls="tab-2" role="tab" aria-selected="false" aria-expanded="false" class="tab">
+                    <span class="HexDecIcon" aria-hidden="true"></span>
+                    <span class="a11y">Choose from options 5 to 8</span>
+                  </a>
+              </li>
+          </ul>
+            <div class="tabpanels-contaniner">
+                <!-- Have a different <ul> list for every set of Accessories -->
+                <ul class="tabpanel list1" id="tab-1" role="tabpanel" aria-label="Choose from options 1 to 4">
+                    <li>
+                        <!-- Visually hidden radio button, 'for' attr make the radio selection on clicking the label element -->
+                        <input type="radio" id="AirPod" name="replacementProductSet1" value="AirPod" class="radioBtn AirPod">
+                        <div>
+                            <label for="AirPod">
+                                <img src="img/MMEF2.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">AirPods</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="BeatsSolo" name="replacementProductSet1" value="BeatsSolo" class="radioBtn BeatsSolo">
+                        <div>
+                            <label for="BeatsSolo">
+                                <img src="img/MMTN2.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Beats Solo</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="BeatsPill" name="replacementProductSet1" value="BeatsPill" class="radioBtn BeatsPill">
+                        <div>
+                            <label for="BeatsPill">
+                                <img src="img/MP162.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Beats Pill</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="Powerbeats3" name="replacementProductSet1" value="Powerbeats3" class="radioBtn Powerbeats3">
+                        <div>
+                            <label for="Powerbeats3">
+                                <img src="img/ML4Q2.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Power beats 3</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="tabpanel list2" id="tab-2" role="tabpanel" aria-label="Choose from options 5 to 8">
+                    <li>
+                        <input type="radio" id="BeatsEp" name="replacementProductSet2" value="BeatsEp" class="radioBtn BeatsEp">
+                        <div>
+                            <label for="BeatsEp">
+                                <img src="img/MP172.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Beats Ep</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="BeatsX" name="replacementProductSet2" value="BeatsX" class="radioBtn BeatsX">
+                        <div>
+                            <label for="BeatsX">
+                                <img src="img/ML8V2.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Beats X</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="IAmButtonBluetooth" name="replacementProductSet2" value="IAmButtonBluetooth" class="radioBtn IAmButtonBluetooth">
+                        <div>
+                            <label for="IAmButtonBluetooth">
+                                <img src="img/HKPR2.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">I Am Button Bluetooth</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" id="SonosPlay" name="replacementProductSet2" value="AirPod" class="radioBtn SonosPlay">
+                        <div>
+                            <label for="SonosPlay">
+                                <img src="img/cons-HKL12-sonos-play1.jpeg" width="100%" class="radioImg" height="100%" alt="">
+                                <span class="radioLabel">Sonos Play</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="prevBtn" aria-label="Previous"><span class="HexDecIcon" aria-hidden="true"></span></button>
+            <button class="nextBtn" aria-label="Next"><span class="HexDecIcon" aria-hidden="true"></span></button>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        //Code just to demo VoiceOver experience
+        $(".prevBtn").prop("disabled", true);
+        $(".list2").css("display", "none").attr("aria-hidden", "true");
+        $(".nextBtn , #tablink-2").on("click", function() {
+            $(".list1").hide().attr("aria-hidden", "true");
+            $(".list2").show().removeAttr("aria-hidden");
+            $(".nextBtn").prop("disabled", true);
+            $(".prevBtn").prop("disabled", false);
+            $('.list2 input[type=radio]').prop('checked', false);
+            $('#tablink-2').attr({"aria-selected" : true, "aria-expanded" : true}).addClass('selected');
+            $('#tablink-1').attr({"aria-selected" : false, "aria-expanded" : false}).removeClass('selected');
+        })
+
+        $(".prevBtn , #tablink-1").on("click", function() {
+            $(".list2").hide().attr("aria-hidden", "true");
+            $(".list1").show().removeAttr("aria-hidden");
+            $(".nextBtn").prop("disabled", false);
+            $(".prevBtn").prop("disabled", true);
+            $('.list1 input[type=radio]').prop('checked', false);
+            $('#tablink-2').attr({"aria-selected" : false, "aria-expanded" : false}).removeClass('selected');
+            $('#tablink-1').attr({"aria-selected" : true, "aria-expanded" : true}).addClass('selected');
+        })
+
+    });
+    </script>
+</body>
+
+</html>
